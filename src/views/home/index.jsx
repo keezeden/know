@@ -4,7 +4,7 @@ import { useHome } from './hook';
 const Home = () => {
   const {} = useHome();
 
-  return <div>Placeholder</div>;
+  return <div>Know</div>;
 };
 
 export { Home };
