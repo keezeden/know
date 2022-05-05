@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuizTypeSelector = ({ selectQuizType }) => {
+const QuizSelector = ({ selectQuizType }) => {
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <button
@@ -18,4 +18,4 @@ const QuizTypeSelector = ({ selectQuizType }) => {
     </div>
   );
 };
-export { QuizTypeSelector };
+export { QuizSelector };

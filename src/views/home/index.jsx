@@ -1,5 +1,6 @@
 import React from 'react';
-import { QuizTypeSelector } from '../../components/quiz-type-selector';
+import { QuizGenerator } from '../../components/quiz-generator';
+import { QuizSelector } from '../../components/quiz-selector';
 import { useHome } from './hook';
 
 const Home = () => {
@@ -8,11 +9,7 @@ const Home = () => {
   return (
     <div className="flex items-center justify-center h-screen ">
       <div className="lg:w-1/2 w-full flex flex-col items-center justify-center h-screen space-y-12">
-        {!selectedQuizType ? (
-          <QuizTypeSelector selectQuizType={selectQuizType} />
-        ) : (
-          <div>You are currently using the quiz type: {selectedQuizType}</div>
-        )}
+        {!selectedQuizType ? <QuizSelector selectQuizType={selectQuizType} /> : <QuizGenerator type={selectedQuizType} />}
       </div>
     </div>
   );
