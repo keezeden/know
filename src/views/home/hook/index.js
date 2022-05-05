@@ -1,5 +1,9 @@
+import { useState } from 'react';
+
 const useHome = () => {
-  return {};
+  const [selectedQuizType, selectQuizType] = useState();
+
+  return { selectedQuizType, selectQuizType };
 };
 
 export { useHome };

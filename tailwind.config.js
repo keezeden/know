@@ -5,8 +5,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '<placeholder>',
-        secondary: '<placeholder>'
+        primary: '#dd5e89',
+        secondary: '#f7bb97'
       },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans]
