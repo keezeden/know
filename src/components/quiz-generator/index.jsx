@@ -3,12 +3,12 @@ import { Question } from '../question';
 import { useQuizGenerator } from './hook';
 
 const QuizGenerator = ({ type }) => {
-  const { questions } = useQuizGenerator();
+  const { questions, index, next } = useQuizGenerator();
 
   if (!questions.length) return <p>Loading...</p>;
 
-  const [first] = questions;
+  const question = questions[index];
 
-  return <Question question={first} />;
+  return <Question question={question} onAnswer={next} />;
 };
 export { QuizGenerator };

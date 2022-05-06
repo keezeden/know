@@ -5,6 +5,9 @@ const QUIZ_URL = 'https://opentdb.com/api.php?amount=10&difficulty=easy&type=mul
 
 const useQuizGenerator = () => {
   const [questions, setQuestions] = useState([]);
+  const [index, setIndex] = useState(0);
+
+  const next = () => setIndex(i => (i += 1));
 
   useEffect(() => {
     (async () => {
@@ -18,7 +21,7 @@ const useQuizGenerator = () => {
     })();
   }, []);
 
-  return { questions };
+  return { questions, index, next };
 };
 
 export { useQuizGenerator };
