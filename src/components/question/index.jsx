@@ -1,32 +1,23 @@
 import React from 'react';
-import he from 'he';
-import { shuffle } from '../../utilities';
+
+import { useQuestion } from './hook';
 // TODO: Move question formatting / desturturing to service for easy swappage of APIs
 const Question = ({ question, onAnswer }) => {
-  // category: "Entertainment: Video Games"
-  // correct_answer: "5"
-  // difficulty: "easy"
-  // incorrect_answers: (3) ['4', '3', '6']
-  // question: "How many games in the Crash Bandicoot series were released on the original Playstation?"
-  // type: "multiple"
-  const { question: title, correct_answer: right, incorrect_answers: wrongs } = question;
-
-  const formatter = text => he.decode(text);
-
-  const answers = shuffle([right, ...wrongs]);
-  const formatted = answers.map(formatter);
+  const { title, answers, onClick, reveal } = useQuestion(question, onAnswer);
 
   return (
     <div className="flex-col justify-center items-center space-y-16 w-full">
-      <p className="tracking-wide uppercase text-2xl text-center">{formatter(title)}</p>
+      <p className="tracking-wide uppercase text-2xl text-center">{title}</p>
       <div className="flex-col justify-center items-center h-full">
-        {formatted.map((a, i) => (
+        {answers.map((a, i) => (
           <button
             key={i}
-            onClick={onAnswer}
-            className="w-full focus:outline-none tracking-widest text-white uppercase text-lg my-2 h-16 rounded-lg bg-gradient"
+            onClick={onClick}
+            className={`w-full focus:outline-none tracking-widest  uppercase text-lg my-4 h-16 rounded-lg ${
+              reveal && a.answer ? 'bg-gradient text-white' : 'border-2 border-primary text-primary'
+            } flex justify-center items-center`}
           >
-            {a}
+            <p>{a.text}</p>
           </button>
         ))}
       </div>
