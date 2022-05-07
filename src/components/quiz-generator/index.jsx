@@ -3,9 +3,10 @@ import { Question } from '../question';
 import { useQuizGenerator } from './hook';
 
 const QuizGenerator = ({ type }) => {
-  const { questions, index, next } = useQuizGenerator();
+  const { questions, isLoading, index, next } = useQuizGenerator();
 
-  if (!questions.length) return <p>Loading...</p>;
+  if (isLoading) return <p>Loading...</p>;
+  if (!questions.length) return <p>No results for that configuration</p>;
 
   const question = questions[index];
 
