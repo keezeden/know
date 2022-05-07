@@ -1,9 +1,9 @@
 {
   "name": "know",
   "start_url": "/home",
-  "background_color": "<placeholder>",
+  "background_color": "#dd5e89",
   "display": "minimal-ui",
-  "theme_color": "<placeholder>",
+  "theme_color": "#dd5e89",
   "icons": [
     {
       "src": "icon-192.png",
