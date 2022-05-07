@@ -19,7 +19,7 @@ const Home = () => {
             onChange={e => setCategory(e.currentTarget.value)}
             name="category"
             items={[
-              { value: null, text: 'Any' },
+              { value: 'any', text: 'Any' },
               { value: '9', text: 'General Knowledge' },
               { value: '10', text: 'Entertainment: Books' },
               { value: '11', text: 'Entertainment: Film' },
@@ -50,7 +50,7 @@ const Home = () => {
             onChange={e => setDifficulty(e.currentTarget.value)}
             name="difficulty"
             items={[
-              { value: null, text: 'Any' },
+              { value: 'any', text: 'Any' },
               { value: 'easy', text: 'Easy' },
               { value: 'medium', text: 'Medium' },
               { value: 'hard', text: 'Hard' }

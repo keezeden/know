@@ -12,8 +12,6 @@ const useHome = () => {
 
   const toggleSettings = () => setSettingsOpen(s => !s);
 
-  console.warn(settings);
-
   return { toggleSettings, isSettingsOpen, setType, setDifficulty, setCategory };
 };
 
