@@ -1,0 +1,9 @@
+const Loading = () => (
+  <div class="sk-flow">
+    <div class="sk-flow-dot"></div>
+    <div class="sk-flow-dot"></div>
+    <div class="sk-flow-dot"></div>
+  </div>
+);
+
+export { Loading };

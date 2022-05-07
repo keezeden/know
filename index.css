@@ -23,8 +23,13 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 
+/* Cant figure out why this wont center properly with normal inline stlyling through tailwind */
 .center {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+* {
+  --sk-color: #dd5e89;
 }

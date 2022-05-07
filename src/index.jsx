@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { App } from './views/app';
 
 import '../index.css';
+import 'spinkit/spinkit.min.css';
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => navigator.serviceWorker.register('../service-worker.js'));
