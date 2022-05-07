@@ -1,6 +1,7 @@
 {
   "name": "know",
   "start_url": "/home",
+  "scope": "know",
   "background_color": "#dd5e89",
   "display": "minimal-ui",
   "theme_color": "#dd5e89",
