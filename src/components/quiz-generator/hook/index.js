@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-const QUIZ_URL = 'https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple';
+const QUIZ_URL = 'https://opentdb.com/api.php?amount=50&difficulty=easy&type=multiple';
 
 const useQuizGenerator = () => {
   const [questions, setQuestions] = useState([]);

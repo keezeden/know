@@ -1,9 +1,11 @@
 import { useState } from 'react';
 
 const useHome = () => {
-  const [selectedQuizType, selectQuizType] = useState();
+  const [isSettingsOpen, setSettingsOpen] = useState();
 
-  return { selectedQuizType, selectQuizType };
+  const toggleSettings = () => setSettingsOpen(s => !s);
+
+  return { toggleSettings, isSettingsOpen };
 };
 
 export { useHome };
