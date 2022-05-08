@@ -3,7 +3,7 @@ import { Loading } from '../loading';
 import { Question } from '../question';
 import { useQuizGenerator } from './hook';
 
-const QuizGenerator = ({ type }) => {
+const QuizGenerator = () => {
   const { questions, isLoading, index, next } = useQuizGenerator();
 
   if (isLoading) return <Loading />;

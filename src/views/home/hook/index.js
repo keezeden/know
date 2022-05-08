@@ -12,7 +12,7 @@ const useHome = () => {
 
   const toggleSettings = () => setSettingsOpen(s => !s);
 
-  return { toggleSettings, isSettingsOpen, setType, setDifficulty, setCategory };
+  return { toggleSettings, isSettingsOpen, setType, setDifficulty, setCategory, settings };
 };
 
 export { useHome };

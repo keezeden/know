@@ -5,7 +5,7 @@ import { QuizGenerator } from '../../components/quiz-generator';
 import { useHome } from './hook';
 
 const Home = () => {
-  const { toggleSettings, isSettingsOpen, setDifficulty, setCategory, setType } = useHome();
+  const { toggleSettings, isSettingsOpen, setDifficulty, setCategory, setType, settings } = useHome();
 
   return (
     <div className="flex items-center justify-center h-screen w-screen">
@@ -14,8 +14,9 @@ const Home = () => {
       </button>
       {isSettingsOpen ? (
         <div className="absolute left-0 h-screen pt-32 w-1/5 center p-8 space-y-4">
-          <Dropdown name="provider" items={[{ value: 'open-trivia', text: 'Open Trivia' }]} />
+          <Dropdown value={settings.provider} name="provider" items={[{ value: 'open-trivia', text: 'Open Trivia' }]} />
           <Dropdown
+            value={settings.category}
             onChange={e => setCategory(e.currentTarget.value)}
             name="category"
             items={[
@@ -47,6 +48,7 @@ const Home = () => {
             ]}
           />
           <Dropdown
+            value={settings.difficulty}
             onChange={e => setDifficulty(e.currentTarget.value)}
             name="difficulty"
             items={[
@@ -57,6 +59,7 @@ const Home = () => {
             ]}
           />
           <Dropdown
+            value={settings.type}
             onChange={e => setType(e.currentTarget.value)}
             name="type"
             items={[
