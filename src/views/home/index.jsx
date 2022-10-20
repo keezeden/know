@@ -6,7 +6,20 @@ import { ScoreCounter } from '../../components/score-counter';
 import { useHome } from './hook';
 
 const Home = () => {
-  const { toggleSettings, isSettingsOpen, setDifficulty, setCategory, setType, settings, count, setCount } = useHome();
+  const {
+    toggleSettings,
+    isSettingsOpen,
+    setDifficulty,
+    setCategory,
+    setType,
+    settings,
+    count,
+    streak,
+    setCount,
+    setStreak,
+    total,
+    setTotal
+  } = useHome();
 
   return (
     <div className="flex items-center justify-center h-screen w-screen">
@@ -72,8 +85,8 @@ const Home = () => {
         </div>
       ) : null}
       <div className="lg:w-1/2 w-full flex flex-col items-center justify-center h-screen">
-        <QuizGenerator setCount={setCount} />
-        <ScoreCounter count={count} />
+        <QuizGenerator setCount={setCount} setStreak={setStreak} setTotal={setTotal} />
+        <ScoreCounter streak={streak} count={count} total={total} />
       </div>
     </div>
   );

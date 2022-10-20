@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useApp } from '../../app-context';
 
-const useQuizGenerator = ({ setCount }) => {
+const useQuizGenerator = ({ setCount, setStreak, setTotal }) => {
   const [questions, setQuestions] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [isUpdated, setUpdated] = useState(true);
@@ -14,7 +14,9 @@ const useQuizGenerator = ({ setCount }) => {
   const { difficulty = null, type = null, category = null } = settings;
 
   const next = wasAnswer => {
-    setCount(count => (wasAnswer ? (count += 1) : 0));
+    setStreak(streak => (wasAnswer ? (streak += 1) : 0));
+    setCount(count => (wasAnswer ? (count += 1) : count));
+    setTotal(total => (total += 1));
 
     if (index === questions.length - 1) fetchQuestions();
     setIndex(i => (i += 1));
