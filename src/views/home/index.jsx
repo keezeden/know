@@ -2,10 +2,11 @@ import React from 'react';
 import { CogIcon } from '../../components/cog-icon';
 import { Dropdown } from '../../components/dropdown';
 import { QuizGenerator } from '../../components/quiz-generator';
+import { ScoreCounter } from '../../components/score-counter';
 import { useHome } from './hook';
 
 const Home = () => {
-  const { toggleSettings, isSettingsOpen, setDifficulty, setCategory, setType, settings } = useHome();
+  const { toggleSettings, isSettingsOpen, setDifficulty, setCategory, setType, settings, count, setCount } = useHome();
 
   return (
     <div className="flex items-center justify-center h-screen w-screen">
@@ -70,8 +71,9 @@ const Home = () => {
           />
         </div>
       ) : null}
-      <div className="lg:w-1/2 w-full flex flex-col items-center justify-center h-screen space-y-12">
-        <QuizGenerator />
+      <div className="lg:w-1/2 w-full flex flex-col items-center justify-center h-screen">
+        <QuizGenerator setCount={setCount} />
+        <ScoreCounter count={count} />
       </div>
     </div>
   );

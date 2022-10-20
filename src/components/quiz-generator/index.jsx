@@ -3,8 +3,8 @@ import { Loading } from '../loading';
 import { Question } from '../question';
 import { useQuizGenerator } from './hook';
 
-const QuizGenerator = () => {
-  const { questions, isLoading, index, next } = useQuizGenerator();
+const QuizGenerator = ({ setCount }) => {
+  const { questions, isLoading, index, next } = useQuizGenerator({ setCount });
 
   if (isLoading) return <Loading />;
   if (!questions.length) return <p>No results for that configuration</p>;

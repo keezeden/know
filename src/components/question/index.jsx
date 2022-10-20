@@ -12,7 +12,7 @@ const Question = ({ question, onAnswer }) => {
         {answers.map((a, i) => (
           <button
             key={i}
-            onClick={onClick}
+            onClick={() => onClick(a.answer)}
             className={`w-full focus:outline-none tracking-widest  uppercase text-lg my-4 h-16 rounded-lg ${
               reveal && a.answer ? 'bg-gradient text-white' : 'border-2 border-primary text-primary'
             } flex justify-center items-center`}

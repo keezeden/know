@@ -25,11 +25,11 @@ const useQuestion = (question, onAnswer) => {
 
   const formattedTitle = formatter(title);
 
-  const onClick = () => {
+  const onClick = wasAnswer => {
     setReveal(true);
     setTimeout(() => {
       setReveal(false);
-      onAnswer();
+      onAnswer(wasAnswer);
     }, 3 * 1000);
   };
 

@@ -3,6 +3,7 @@ import { useApp } from '../../../components/app-context';
 
 const useHome = () => {
   const [isSettingsOpen, setSettingsOpen] = useState();
+  const [count, setCount] = useState(0);
 
   const { settings, setSettings } = useApp();
 
@@ -12,7 +13,7 @@ const useHome = () => {
 
   const toggleSettings = () => setSettingsOpen(s => !s);
 
-  return { toggleSettings, isSettingsOpen, setType, setDifficulty, setCategory, settings };
+  return { toggleSettings, isSettingsOpen, setType, setDifficulty, setCategory, settings, count, setCount };
 };
 
 export { useHome };
