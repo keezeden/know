@@ -5,6 +5,7 @@ import { shuffle } from '../../../utilities';
 const useQuestion = (question, onAnswer) => {
   const [reveal, setReveal] = useState(false);
   const [answers, setAnswers] = useState([]);
+  const [selectedIndex, setSelectedIndex] = useState();
   // category: "Entertainment: Video Games"
   // correct_answer: "5"
   // difficulty: "easy"
@@ -25,15 +26,21 @@ const useQuestion = (question, onAnswer) => {
 
   const formattedTitle = formatter(title);
 
-  const onClick = wasAnswer => {
+  const onClick = (wasAnswer, index) => {
     setReveal(true);
+    setSelectedIndex(index);
     setTimeout(() => {
       setReveal(false);
       onAnswer(wasAnswer);
+      setSelectedIndex(null);
     }, 3 * 1000);
   };
 
-  return { title: formattedTitle, answers, onClick, reveal };
+  const wasSelected = index => {
+    return index === selectedIndex;
+  };
+
+  return { title: formattedTitle, answers, onClick, reveal, wasSelected };
 };
 
 export { useQuestion };

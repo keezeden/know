@@ -3,7 +3,7 @@ import React from 'react';
 import { useQuestion } from './hook';
 // TODO: Move question formatting / desturturing to service for easy swappage of APIs
 const Question = ({ question, onAnswer }) => {
-  const { title, answers, onClick, reveal } = useQuestion(question, onAnswer);
+  const { title, answers, onClick, reveal, wasSelected } = useQuestion(question, onAnswer);
 
   return (
     <div className="flex-col justify-center items-center space-y-16 w-full">
@@ -12,10 +12,10 @@ const Question = ({ question, onAnswer }) => {
         {answers.map((a, i) => (
           <button
             key={i}
-            onClick={() => onClick(a.answer)}
+            onClick={() => onClick(a.answer, i)}
             className={`w-full focus:outline-none tracking-widest  uppercase text-lg my-4 h-16 rounded-lg ${
               reveal && a.answer ? 'bg-gradient text-white' : 'border-2 border-primary text-primary'
-            } flex justify-center items-center`}
+            } flex justify-center items-center ${wasSelected(i) && !a.answer ? 'border-8' : ''}`}
           >
             <p>{a.text}</p>
           </button>
